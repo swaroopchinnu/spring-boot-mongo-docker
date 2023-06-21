@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: my-app
+  name: spring
 spec:
   source:
     git:
@@ -11,11 +11,11 @@ spec:
     sourceStrategy:
       from:
         kind: DockerImage
-        name: maven:3.8.4-openjdk-11
+        name: openjdk:8-alpine
       env:
         - name: MAVEN_MIRROR_URL
           value: http://my-maven-mirror.com/repository
   output:
     to:
       kind: ImageStreamTag
-      name: my-app:latest
+      name: spring:latest
